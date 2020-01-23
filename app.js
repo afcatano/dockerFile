@@ -81,13 +81,7 @@ app.use(compression());
 app.disable('x-powered-by');
 //Tell express to allow accept redirected requests
 app.enable('trust proxy');
-app.use(function(req, res, next){
- // console.log(req.get('host'));
-    if(req.secure) return next();
-    else {
-         res.redirect("http://" + req.headers.host + req.url);
-    }
-}); 
+
 //Expresss no formate
 app.locals.pretty = true;
 // serve the files out of ./public as our main files
