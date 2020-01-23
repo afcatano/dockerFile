@@ -1,0 +1,25 @@
+.w150{
+    width: 100%;
+}
+
+.resultado{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.btn {
+    background-color: #04D59E;
+    border-color: #04D59E;
+}
+
+.badge{
+    background-color: #04D59E; 
+}
+
+
+.btn:active{
+    background-color:rgb(255, 220, 93) !important; 
+    border-color: #04D59E;
+}

@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="body">
+  <div class="container">
+    <div class="card card-container" [class.mat-elevation-z8]="true">
+      <img class="profile-img-card" src="/assets/user.png" alt="/assets/user.png" />
+      <div *ngIf="error" class="alert alert-danger" role="alert">
+        <strong>{{error}}</strong>
+        <button type="button" (click)="discardNotification()" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div *ngIf="!processing" class="form-signin">
+          <input matInput type="text"  id="inputSuccess">
+          <div>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Usuario"  [(ngModel)]="username" value="">
+            </mat-form-field>
+         </div>
+          <div style="margin: auto">
+            <mat-form-field class="Contraseña">
+              <input matInput type="password" [(ngModel)]="password" placeholder="Contraseña" value="">
+            </mat-form-field>
+          </div>
+          <br>
+          <br>
+          <button mat-raised-button color="primary" (click)="onSubmit()">Iniciar Sesión</button>
+      </div>
+      <span> <a [routerLink]="['/']">Regresar al Portal</a></span>
+      <sk-circle *ngIf="processing"></sk-circle>
+    </div>
+  </div>
+</div>

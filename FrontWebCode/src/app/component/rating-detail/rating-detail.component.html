@@ -1,0 +1,16 @@
+<div class="container">
+    <br>
+    <a class="btn btn-outline-primary" [routerLink]="['/home/qualification']">Volver</a>
+    <h1 class="text-center text-capitalize">
+        Detalle de calificación
+    </h1>
+    <div class="card-header text-center">
+            <h4 style="vertical-align: middle" >
+                Total: <span class="badge badge-primary"> {{ size }} </span>
+                Promedio: <span class="badge badge-primary"> {{ average() }} </span>
+            </h4>
+    </div>
+    <app-excel [datos]="infoTable"></app-excel>
+    <br>
+    <app-table [data]='infoTable' [dataTitle]="dataTitle"></app-table>
+</div>

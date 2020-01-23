@@ -1,0 +1,27 @@
+<form style="margin-top: 10px;"> 
+  <div class="form-group">
+    <label>Nombre</label>
+    <input [(ngModel)]="data['name']" name="name" type="text" class="form-control" placeholder="Nombre de Usuario">
+  </div>
+  <div *ngIf="this.selectedBot.getSelectedBotSession().titulo == 'ChatBot Externo'" class="form-row">
+    <div class="col-md-2 col-sm-4">
+      <label>Tipo Documento</label>
+      <select [(ngModel)]="data['documentType']" class="form-control" name="documentType">
+        <option value="null">Escoge Un Tipo</option>
+        <option value="MSG_DOCUMENTO">Cédula</option>
+        <option value="MSG_DOCUMENTO_EXT">Cédula Extranjera</option>
+        <option value="MSG_DOCUMENTO_NIT">NIT</option>
+      </select>
+    </div>
+    <div class="col">
+      <label> No. Documento </label>
+      <input [(ngModel)]="data['documentId']" name="documentId" type="number" class="form-control" placeholder="No. Documento">
+    </div>
+  </div>
+  <br>
+  <div class="row justify-content-center" >
+    <button (click)="send()" type="submit" class="btn btn-outline-secondary">Buscar</button>
+    <button matTooltip="Limpiar campos de filtro"
+    (click)="clear()" type="submit" class="btn btn-outline-primary">Limpiar</button>
+  </div>
+</form>

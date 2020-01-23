@@ -1,0 +1,72 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="!shouldRun">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h2 class="example-app-name">Trade Campo {{tituloBot}}</h2>
+    <p class="saludo"> {{ saludo }} </p>
+
+     <button matTooltip="Selección de Bot"  mat-icon-button [matMenuTriggerFor]="menu" class="menuCerrar-Session ">
+      <mat-icon matBadge="{{cantidadProductos}}" matBadgePosition="before" matBadgeOverlap="accent">more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <span>Menú</span>
+      </button>
+
+      <button mat-menu-item *ngFor="let nav of navMenuChatBot" (click)="onMenuChatBotClick([nav])">
+        <mat-icon>{{nav.icon}}</mat-icon>
+        <span ><a [routerLink]="[nav.state]">{{nav.title}}</a></span>
+        
+      </button>
+      
+      <div  *ngIf="verCarrito">
+      <button mat-menu-item >
+          <mat-icon>add_shopping_cart</mat-icon>
+          <span><a [routerLink]="['/carrito']">Total {{totalCarrito}} $</a></span>
+         </button>
+      </div>
+
+      <button mat-menu-item >
+          <mat-icon>shop</mat-icon>
+          <span><a [routerLink]="['/carrito']">Compras</a></span>
+         </button>
+      
+      <button mat-menu-item >
+          <mat-icon>show_chart</mat-icon>
+          <span><a [routerLink]="['/overview']">Metricas</a></span>
+         </button>
+      
+      <button mat-menu-item>
+        <mat-icon>lock</mat-icon>
+        <span> <a [routerLink]="['/login']">Iniciar sessión</a></span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>subject</mat-icon>
+        <span> <a [routerLink]="['/register']">Registrarse</a></span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56">
+      <mat-nav-list>
+        <span><a mat-list-item [routerLink]="[nav.state]" *ngFor="let nav of navMenu">
+            <mat-icon>{{nav.icon}}</mat-icon> &nbsp; {{nav.title}}
+          </a></span>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content (click)="snav.toggle(false)">
+      <div>
+        <div class="text-center bienvenida" >
+          <h2>TradeCampo</h2>  
+
+          <img src="../../../assets/inicio.png" alt="Logo">
+        </div>
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

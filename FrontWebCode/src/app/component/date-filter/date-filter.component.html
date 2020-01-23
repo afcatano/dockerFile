@@ -1,0 +1,38 @@
+
+
+<div class="row justify-content-center">
+  <div class="btn-group" role="group" aria-label="Basic example">
+      <button (click)="actionDate('range')"
+      type="button" class="btn btn-secondary">Rango</button>
+      <button (click)="actionDate('day')" matTooltip="Día actual"
+      type="button" class="btn btn-secondary">Dia</button>
+      <button (click)="actionDate('week')" matTooltip="Semana actual"
+      type="button" class="btn btn-secondary">Semana</button>
+      <button (click)="actionDate('month')" matTooltip="Mes actual"
+      type="button" class="btn btn-secondary">Mes</button>
+      
+  </div>
+  <br>
+
+  <div *ngIf="rangeDate" class="row col-12 justify-content-center">
+    <div class="col-12 col-lg-3 text-center">
+      <mat-form-field>
+        <input matInput [matDatepicker]="initialDate" [min]="minInitialDate" [max]="maxDateFist" placeholder="Fecha inicial" (dateInput)="addEvent('input', $event, 'initialDate')"
+          (dateChange)="addEvent('change', $event,'initialDate')">
+        <mat-datepicker-toggle matSuffix [for]="initialDate"></mat-datepicker-toggle>
+        <mat-datepicker #initialDate></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-lg-3 text-center">
+      <mat-form-field>
+        <input matInput [matDatepicker]="endDate" [min]="minEndDate" [max]="maxEndDate" placeholder="Fecha final" (dateInput)="addEvent('input', $event, 'endDate')"
+          (dateChange)="addEvent('change', $event,'endDate')">
+        <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+        <mat-datepicker #endDate></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-md-12 text-center date-filter-button">
+      <button class="btn btn-outline-secondary" (click)="getInfo()">Consultar</button>
+    </div>
+  </div>
+</div>

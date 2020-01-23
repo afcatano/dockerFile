@@ -1,0 +1,15 @@
+table {
+    width: 100%;
+    background-color: white 
+  }
+
+.col-size{
+  width: 14.28%;
+  vertical-align: middle
+}
+
+@media (max-width: 768px){
+  table{
+    width: 800px;
+  }
+}

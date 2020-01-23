@@ -1,0 +1,34 @@
+<mat-accordion>
+  <!-- Se recorre el array de datos y se guarda en la varibale dato -->
+  <mat-expansion-panel *ngFor="let dato of data">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{dato.history[0].date | date:'medium'}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{dato.userId}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-divider></mat-divider>
+    <!-- Se recorre cada historial de conversacion y se guarda en una variable chat -->
+    <div *ngFor="let chat of dato.history" class="content-conversation" [ngClass]="{'text-left': chat.actor == 'Asesor', 'text-right': chat.actor == 'User'}">
+      <div [ngClass]=" {'asesor-content': chat.actor == 'Asesor', 'user-content': chat.actor == 'User' }">
+        <span class="badge" [ngClass]=" {'badge-primary': chat.actor == 'Asesor', 'badge-success': chat.actor == 'User' }">
+          {{ chat.actor }}
+        </span>
+        <div [innerHTML]='chat.message | safeHtml'></div>
+        <div *ngIf="chat.options">
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-action" *ngFor="let option of chat.options"> {{ option }} </li>
+          </ul>
+        </div>
+        <div class="date-box">
+          {{ chat.date | date:'mediumTime' }}
+        </div>
+      </div>
+    </div>
+
+  </mat-expansion-panel>
+
+</mat-accordion>

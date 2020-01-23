@@ -1,0 +1,41 @@
+{
+  "name": "AppWeb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "AppWeb",
+    "node",
+    "Administrator",
+    "IBM"
+  ],
+  "author": "IBM",
+  "license": "ISC",
+  "dependencies": {
+    "JSON": "^1.0.0",
+    "async": "^2.6.1",
+    "body-parser": "^1.18.3",
+    "cfenv": "^1.1.0",
+    "compression": "^1.7.3",
+    "cors": "^2.8.4",
+    "ddos": "^0.1.31",
+    "express": "^4.16.3",
+    "fs": "0.0.1-security",
+    "helmet": "^3.12.2",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "lodash": "^4.17.10",
+    "mongodb": "^3.1.1",
+    "node-regexp": "^0.1.1",
+    "request": "^2.87.0",
+    "safe": "^0.4.6",
+    "validator": "^10.4.0"
+  },
+  "engines": {
+    "node": "6.x"
+  }
+}

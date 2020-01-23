@@ -1,0 +1,20 @@
+<div class="container separador">
+    <h3 class="text-center text-uppercase">
+        Metricas
+    </h3>
+    <hr>
+    
+    <app-date-filter (getRangeDate)="getRangeDate($event)"></app-date-filter>
+    <br>
+    <div class="card">
+        <div class="card-header">
+            <app-excel [datos]="infoGraphDatas"></app-excel>
+        </div>
+        <div class="card-body">
+            <app-linear-graph [graphData]="infoGraphDatas"></app-linear-graph>
+        </div>
+    </div>
+
+    
+
+</div>

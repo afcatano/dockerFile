@@ -1,0 +1,36 @@
+<div class="resize">
+    <mat-tree class="fondo" [dataSource]="dataSource" [treeControl]="treeControl">
+        <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
+            <button mat-icon-button disabled>
+                <mat-icon class="mat-icon-rtl-mirror">
+                    {{'subdirectory_arrow_right'}}
+                </mat-icon>
+            </button>
+            <div class="card separar card-size text-justify">
+                <div class="card-body">
+                    <h5 [innerHTML]='node.name | replace | safeHtml' class="card-title text-muted"></h5>
+                    <p class="text-right card-text"> <strong>{{ node.quantity }}</strong> </p>
+                </div>
+            </div>
+        </mat-tree-node>
+    
+        <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+                <div class="hiloSuperior" ></div>
+                <div class="hiloInferior" [ngStyle]="{'left':treeControl.isExpanded(node)  ? '23px':'-17px','top':treeControl.isExpanded(node)  ? '80px':'25px'}" 
+               
+                ></div>
+               
+            <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.name" class="content-button-tree">
+                <mat-icon class="mat-icon-rtl-mirror">
+                    {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                </mat-icon>
+            </button>
+            <div class="card separar card-size">
+                <div class="card-body">
+                    <h5 [innerHTML]='node.name | replace | safeHtml' class="card-title text-muted text-justify"></h5>
+                    <p class="text-right card-text"> <strong>{{ node.quantity }}</strong> </p>
+                </div>
+            </div>
+        </mat-tree-node>
+    </mat-tree>
+</div>

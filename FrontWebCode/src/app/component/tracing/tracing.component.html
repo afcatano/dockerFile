@@ -1,0 +1,19 @@
+<div class="container">
+  <h2 class="text-center text-uppercase">
+    Componente de Seguimiento
+  </h2>
+  <hr>
+  <app-date-filter (getRangeDate)="getRangeDate($event)"></app-date-filter>
+  <app-excel [datos]="excelData"></app-excel>
+  <app-data-filter (getDataFilter)="getFilters($event)"></app-data-filter>
+  <br>
+  <div *ngIf="!progress; else elseTemplate">
+    <app-accordion [data]='tracking'></app-accordion>
+  </div>
+  <ng-template #elseTemplate>
+    <br>
+    <div class="row justify-content-center">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,51 @@
+<div>
+    
+  </div>
+  
+  <div *ngIf="carrito.length>0;else carritovaciotmpl" class="mat-elevation-z8">
+
+      <mat-list>
+          <mat-list-item *ngFor="let item of carrito" style="background-color: white">
+
+              <table border="0" class="margin-20" >
+                   <tr >
+                      <td  class="has-text-centered" style="padding: 20px;">
+                         <button mat-mini-fab botonColorGreen>{{item.cantidad}}</button>
+                      </td>
+                     <!-- <td style="padding: 20px;">{{item.titulo}}</td>-->
+                      <td style="padding: 20px;"><img  src="{{item.imagen}}" width="70%" alt="Card image cap"></td>
+                      <td style="padding: 20px;">{{item.precio}}$</td>
+                      <td style="padding: 20px;">
+                       <span ><a (click)="removerProducto(item)"><mat-icon>remove_circle</mat-icon></a></span>
+                       <span ><a (click)="addProducto(item)"><mat-icon>add_circle</mat-icon></a></span>
+                   </tr>      
+                  </tbody>
+                 </table>
+
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </mat-list>
+
+
+    <table class="margin-top-60" class='table table-bordered'>
+      
+      <tbody>
+        
+             
+      </tbody>
+      <tfoot>
+          <tr class="carrito-total">
+            <td colspan="2"></td>
+            <td>
+              Total: {{total}}$
+            </td>
+          </tr>
+      </tfoot>
+    </table>
+    <div class="centerCotizar">
+    <button mat-raised-button color="primary" (click)="checkhout()">Cotizar</button>
+  </div>
+  </div>
+
+
+ 
