@@ -1,7 +1,7 @@
 FROM node:8
 
 # Create app directory
-WORKDIR /home/node/app
+WORKDIR /usr/src/app
 
 
 LABEL io.openshift.expose-services="8080:http"
@@ -11,7 +11,7 @@ LABEL io.openshift.expose-services="8080:http"
 # where available (npm@5+)
 COPY package*.json ./
 
-RUN npm install && chgrp -R 0 /home/node/app && chmod -R g=u /home/node/app
+RUN npm install && chgrp -R 0 /usr/src/app   && chmod -R g=u /usr/src/app
 # If you are building your code for production
 # RUN npm install --only=production
 
@@ -19,5 +19,6 @@ RUN npm install && chgrp -R 0 /home/node/app && chmod -R g=u /home/node/app
 COPY . .
 
 EXPOSE 8080
+USER 1001
 
 CMD [ "npm", "start" ]
