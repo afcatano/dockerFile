@@ -35,8 +35,8 @@ var express = require('express')
 var cfenv = require('cfenv');
 // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv(),
-  port = cfenv.port || process.env.PORT || 7020;
-  securePort = cfenv.securePort || process.env.securePort || 7022; 
+  port = cfenv.port || process.env.PORT || 8080;
+  securePort = cfenv.securePort || process.env.securePort || 8080; 
 /**
   Set up helmet to protect various kinds of attacks
   Documentation at ... https://helmetjs.github.io/
@@ -112,10 +112,10 @@ clienteMongoDB.init(appEnv.isLocal,
 
 
 // start server on the specified port and binding host
-/*app.listen(port, function() {
+app.listen(port, function() {
   console.log('Listening on port ' + port)
-});*/
-async.series([
+});
+/*async.series([
   function(cb2) {
     if(appEnv.isLocal) {
         var options = {
@@ -149,3 +149,4 @@ async.series([
   console.log("iniciado con puerto");
   console.log("Engine started");
 });
+*/
