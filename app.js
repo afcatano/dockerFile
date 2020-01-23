@@ -85,10 +85,7 @@ app.use(function(req, res, next){
  // console.log(req.get('host'));
     if(req.secure) return next();
     else {
-        if(appEnv.isLocal)
-            res.redirect("https://localhost" + ":" + securePort + req.url);
-        else
-            res.redirect("https://" + req.headers.host + req.url);
+         res.redirect("http://" + req.headers.host + req.url);
     }
 }); 
 //Expresss no formate
