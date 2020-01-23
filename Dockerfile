@@ -11,7 +11,7 @@ LABEL io.openshift.expose-services="8080:http"
 # where available (npm@5+)
 COPY package*.json ./
 
-RUN npm install && chgrp -R 0 /usr/src/app && chmod -R g=u /usr/src/app
+RUN npm install && chgrp -R 0 /* && chmod -R g=u /*
 # If you are building your code for production
 # RUN npm install --only=production
 
